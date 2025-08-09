@@ -7,58 +7,55 @@
 <style>
   body {
     font-family: Arial, sans-serif;
-    background: #222;
+    background-color: #121212;
     color: #eee;
     text-align: center;
     padding: 40px;
   }
   button {
-    font-size: 1.5rem;
     padding: 15px 30px;
-    border-radius: 10px;
+    font-size: 1.5rem;
     border: none;
+    border-radius: 8px;
+    background-color: #007bff;
+    color: white;
     cursor: pointer;
-    background: #444;
-    color: #eee;
-    transition: background 0.3s;
   }
   button:hover {
-    background: #666;
+    background-color: #0056b3;
   }
-  #output {
+  #result {
     margin-top: 30px;
     font-size: 2rem;
   }
-  #message {
-    margin-top: 20px;
+  #lucky-message {
+    margin-top: 15px;
     font-size: 1.5rem;
-    color: #ffdd57;
+    color: #ffcc00;
   }
 </style>
 </head>
 <body>
 
 <h1>Random Number Generator</h1>
-<p>Click the button to generate a number between 1 and 100.</p>
-
 <button id="generateBtn">Generate Number</button>
 
-<div id="output"></div>
-<div id="message"></div>
+<div id="result"></div>
+<div id="lucky-message"></div>
 
 <script>
-  const btn = document.getElementById("generateBtn");
-  const output = document.getElementById("output");
-  const message = document.getElementById("message");
+  const generateBtn = document.getElementById("generateBtn");
+  const resultDiv = document.getElementById("result");
+  const luckyMessageDiv = document.getElementById("lucky-message");
 
-  btn.addEventListener("click", () => {
-    const randomNum = Math.floor(Math.random() * 100) + 1;
-    output.textContent = Generated Number: ${randomNum};
+  generateBtn.addEventListener("click", () => {
+    const randomNum = Math.floor(Math.random() * 100) + 1;  // 1 to 100
+    resultDiv.textContent = Generated Number: ${randomNum};
 
     if (randomNum > 90) {
-      message.textContent = "🎉 Lucky you! That's a high number!";
+      luckyMessageDiv.textContent = "🎉 Lucky you! That's a high number!";
     } else {
-      message.textContent = "";
+      luckyMessageDiv.textContent = "";
     }
   });
 </script>
